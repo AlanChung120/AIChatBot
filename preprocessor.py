@@ -1,6 +1,6 @@
 import nltk
-nltk.download('punkt_tab')
 from nltk.stem.porter import PorterStemmer
+#nltk.download('punkt_tab')
 
 class Preprocessor:
   """
