@@ -19,4 +19,8 @@ for intent in intents['intents']:
     allWords.extend(w)
     xy.append((w, tag))
 
-print(xy)
+allWords = [preprocessor.stem(word) for word in allWords if word not in toIgnore]
+allWords = sorted(set(allWords))
+tags = sorted(set(tags))
+print(allWords)
+print(tags)
