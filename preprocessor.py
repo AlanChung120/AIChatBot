@@ -1,4 +1,5 @@
 import nltk
+import numpy as np
 from nltk.stem.porter import PorterStemmer
 #nltk.download('punkt_tab')
 
@@ -32,4 +33,9 @@ class Preprocessor:
   bagOfWordsVector =   [  0 ,    1   ,  0 ,  1   ,   0  ,    0   ,   0   ]
   """
   def bagOfWordsVector(self, tokenizedPhrase, allWords):
-    pass
+    stemmedTokenizedPhrase = [self.stem(word) for word in tokenizedPhrase] # stem tokenizedPhrase
+    bagVector = np.zeros(len(allWords), dtype = np.float32) 
+    for i in range(len(allWords)): # go through all words
+      if allWords[i] in stemmedTokenizedPhrase:
+        bagVector[i] = 1.0 # indicate with 1.0 that the word exists in stemmedTokenizedPhrase
+    return bagVector

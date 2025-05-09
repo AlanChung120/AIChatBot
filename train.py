@@ -2,6 +2,10 @@ import json
 import numpy as np
 from preprocessor import Preprocessor 
 
+import torch
+import torch.nn as nn
+from torch.utils.data import Dataset, DataLoader
+
 with open('intents.json', 'r') as file:
   intents = json.load(file)
 
