@@ -10,18 +10,18 @@ class Preprocessor:
   Fields
   -----------
   stemmer : PorterStemmer
-      stemmer to generate root from words
+    stemmer to generate root from words
   """
   stemmer = None
 
   def __init__(self):
     self.stemmer = PorterStemmer()
   
-  # split string into words/components (Ex. aren't -> are n't)
+  # split phrase string into words/components (Ex. aren't -> are n't)
   def tokenize(self, phrase):
     return nltk.word_tokenize(phrase)
 
-  # generate root form of words (Ex. organize -> organ)
+  # generate root form of the given word (Ex. organize -> organ)
   def stem(self, word):
     return self.stemmer.stem(word.lower())
 

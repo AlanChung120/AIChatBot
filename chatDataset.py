@@ -7,11 +7,11 @@ class ChatDataset(Dataset):
   Fields
   -----------
   n_samples : int
-      number of data points
+    number of data points
   x_data : ndarray
-      input data (list of bag of words vectors)
+    input data (list of bag of words vectors)
   y_data : ndarray
-      list of y labels (list of indices representing tags)
+    list of y labels (list of indices representing tags)
   """
   n_samples = 0
   x_data = None

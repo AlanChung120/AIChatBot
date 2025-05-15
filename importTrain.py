@@ -37,4 +37,4 @@ def importTrainData():
   X_train = np.array(X_train)
   y_train = np.array(y_train)
 
-  return X_train, y_train
+  return X_train, y_train, tags, allWords 
