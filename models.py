@@ -1,4 +1,3 @@
-import torch
 import torch.nn as nn
 
 class NeuralNet(nn.Module):
@@ -27,5 +26,5 @@ class NeuralNet(nn.Module):
   # forward pass of the neural network 
   def forward(self, x):
     output = self.network(x)
-    # no activation and no softmax yet (done through cross entropy)
+    # no activation and no softmax (done through cross entropy)
     return output
