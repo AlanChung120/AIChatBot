@@ -39,7 +39,7 @@ if __name__ == '__main__':
       optimizer.zero_grad()
 
       # forward pass
-      #WHY IS wordsBagVector NONETYPE
+      # WHY IS wordsBagVector NONETYPE
       outputs = model(wordsBagVector)
       loss = lossFunction(outputs, tags)
 
