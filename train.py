@@ -31,6 +31,7 @@ if __name__ == '__main__':
   # Training
   for epoch in range(epochs):
     numCorrect = 0
+    total = 0
     for (wordsBagVector, tags) in trainLoader:
       # push to device
       wordsBagVector = wordsBagVector.to(device) # words (X_train)
@@ -39,7 +40,6 @@ if __name__ == '__main__':
       optimizer.zero_grad()
 
       # forward pass
-      # WHY IS wordsBagVector NONETYPE
       outputs = model(wordsBagVector)
       loss = lossFunction(outputs, tags)
 
@@ -50,7 +50,7 @@ if __name__ == '__main__':
       numCorrect += (predicted == tags).double().sum().item() # count number of correct prediction
       total += tags.size(0) # count total number of training samples
 
-    if (epoch + 1) % 100 == 0:
+    if (epoch + 1) % 10 == 0:
       print(f'epoch {epoch + 1}/{epochs}, loss={loss.item():.4f}, accuracy={numCorrect / total:.4f}')
 
   print(f'final loss and accuracy, loss={loss.item():.4f}, accuracy={numCorrect / total:.4f}')

@@ -3,13 +3,7 @@ import torch.nn as nn
 class NeuralNet(nn.Module):
   """
   A class representing the neural network used for classification
-  
-  Fields
-  -----------
-  network: Sequential
-    neural network variable
   """
-  network = None
 
   def __init__(self, inputSize, hiddenSize, classes):
     super(NeuralNet, self).__init__()
