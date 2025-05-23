@@ -9,7 +9,7 @@ if __name__ == '__main__':
   (X_train, y_train, tags, allWords) = importTrainData()
 
   # Hyperparameters (can change)
-  batchSize = 8
+  batchSize = 8 # batch size the trainLoader loads at a time (ex. 26 = 8 + 8 + 8 + 2)
   hiddenSize = 8
   learningRate = 0.001
   epochs = 1000
@@ -18,6 +18,8 @@ if __name__ == '__main__':
 
   # training data
   dataset = ChatDataset(X_train, y_train)
+  # trainLoader (training samples) has the same number of elements as number of training samples (patterns in intents.json)
+  # each training sample is form of numpy array (bagOfWords vector AKA input features vector)
   trainLoader = torch.utils.data.DataLoader(dataset=dataset, batch_size=batchSize, shuffle=True, num_workers=2)
 
   # device to train on
@@ -39,16 +41,21 @@ if __name__ == '__main__':
       # zero out gradients
       optimizer.zero_grad()
 
-      # forward pass
+      # forward pass----------------------------------------------
+      # outputs: len(tags) (column) X batch_size (row) (higher the number the more liekly it is that tag)
+      # len(tags) = number of output features/classifications
       outputs = model(wordsBagVector)
       loss = lossFunction(outputs, tags)
 
-      # backward step
+      # backward step------------------------------------------------
       loss.backward() # calculate back propagation
       optimizer.step() # single optimization step
-      _, predicted = outputs.max(1) # get predicted from outputs
-      numCorrect += (predicted == tags).double().sum().item() # count number of correct prediction
-      total += tags.size(0) # count total number of training samples
+      # get predicted tag from outputs (get index of highest element in each row (for each training sample in batch))
+      _, predicted = outputs.max(1)
+      # count number of correct prediction (check equality, turn boolean -> double (1.0, 0.0), add the elements of the numpy array, get that sum)
+      numCorrect += (predicted == tags).double().sum().item()
+      # count total number of training samples (add size of the current batch)
+      total += tags.size(0)
 
     if (epoch + 1) % 10 == 0:
       print(f'epoch {epoch + 1}/{epochs}, loss={loss.item():.4f}, accuracy={numCorrect / total:.4f}')
