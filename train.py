@@ -6,7 +6,7 @@ from models import NeuralNet
 
 if __name__ == '__main__':
   # Get Training data
-  (X_train, y_train, tags, allWords) = importTrainData()
+  (X_train, y_train, allTags, allWords) = importTrainData()
 
   # Hyperparameters (can change)
   batchSize = 8 # batch size the trainLoader loads at a time (ex. 26 = 8 + 8 + 8 + 2)
@@ -14,7 +14,7 @@ if __name__ == '__main__':
   learningRate = 0.001
   epochs = 500
   inputSize = len(allWords) # size of allWords/bagOfWords vector (all patterns)
-  outputSize = len(tags) # size of tags (classify tags)
+  outputSize = len(allTags) # size of tags (classify tags)
 
   # training data
   dataset = ChatDataset(X_train, y_train)
@@ -39,14 +39,14 @@ if __name__ == '__main__':
     # convert numpy into torch tensor data type when loading from trainLoader
     for (wordsBagVector, tags) in trainLoader:
       # push to device
-      wordsBagVector = wordsBagVector.to(device) # words (X_train)
-      tags = tags.to(device) # labels (y_train)
+      wordsBagVector = wordsBagVector.to(device) # batch of words (X_train)
+      tags = tags.to(device) # batch of labels/tag index (y_train)
       # zero out gradients
       optimizer.zero_grad()
 
       # forward pass----------------------------------------------
-      # outputs: len(tags) (column) X batch_size (row) (higher the number the more liekly it is that tag)
-      # len(tags) = number of output features/classifications
+      # outputs: len(allTags) (column) X batch_size (row) (higher the number the more liekly it is that tag)
+      # len(allTags) = number of output features/classifications
       outputs = model(wordsBagVector)
       loss = lossFunction(outputs, tags)
 
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     "output_size": outputSize,
     "hidden_size": hiddenSize,
     "all_words": allWords,
-    "tags": tags
+    "tags": allTags
   }
 
   # save to a py torch file
