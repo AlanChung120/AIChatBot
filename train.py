@@ -25,6 +25,8 @@ if __name__ == '__main__':
   # device to train on
   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
   model = NeuralNet(inputSize, hiddenSize, outputSize).to(device)
+  # set the model to train mode
+  model.train()
 
   # loss and optimizer
   lossFunction = nn.CrossEntropyLoss()
@@ -61,3 +63,19 @@ if __name__ == '__main__':
       print(f'epoch {epoch + 1}/{epochs}, loss={loss.item():.4f}, accuracy={numCorrect / total:.4f}')
 
   print(f'final loss and accuracy, loss={loss.item():.4f}, accuracy={numCorrect / total:.4f}')
+
+  # training data to save
+  trainingData = {
+    "model_state": model.state_dict(),
+    "input_size": inputSize,
+    "output_size": outputSize,
+    "hidden_size": hiddenSize,
+    "all_words": allWords,
+    "tags": tags
+  }
+
+  # save to a py torch file
+  FILE = "data.pth"
+  torch.save(trainingData, FILE)
+
+  print(f'Training complete. File saved to {FILE}')
