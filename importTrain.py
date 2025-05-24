@@ -7,8 +7,11 @@ def importTrainData():
   with open('intents.json', 'r') as file:
     intents = json.load(file)
 
-  toIgnore = ['?', '!', '.', ',']
+
+  # preprocessing training data steps (NLTK):
+  # tokenize -> lowercase -> stemming -> exclude punctuation -> bag of words vector
   preprocessor = Preprocessor()
+  toIgnore = ['?', '!', '.', ',']
 
   allWords = []
   tags = []
@@ -33,7 +36,7 @@ def importTrainData():
   for (words, tag) in xy:
     bagVector = preprocessor.bagOfWordsVector(words, allWords) # get bag of words vector
     X_train.append(bagVector)
-    y_train.append(tags.index(tag)) # store the associated tag index (For CrossEntropyLoss)
+    y_train.append(tags.index(tag)) # store the associated tag index for tags list (For CrossEntropyLoss)
   X_train = np.array(X_train)
   y_train = np.array(y_train)
 

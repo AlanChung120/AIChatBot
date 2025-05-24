@@ -12,7 +12,7 @@ if __name__ == '__main__':
   batchSize = 8 # batch size the trainLoader loads at a time (ex. 26 = 8 + 8 + 8 + 2)
   hiddenSize = 8
   learningRate = 0.001
-  epochs = 1000
+  epochs = 500
   inputSize = len(allWords) # size of allWords/bagOfWords vector (all patterns)
   outputSize = len(tags) # size of tags (classify tags)
 
@@ -36,6 +36,7 @@ if __name__ == '__main__':
   for epoch in range(epochs):
     numCorrect = 0
     total = 0
+    # convert numpy into torch tensor data type when loading from trainLoader
     for (wordsBagVector, tags) in trainLoader:
       # push to device
       wordsBagVector = wordsBagVector.to(device) # words (X_train)
