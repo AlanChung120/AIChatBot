@@ -15,6 +15,7 @@ def importTrainData():
 
   allWords = []
   tags = []
+  xy = []
   X_train = []
   y_train = []
 
@@ -25,6 +26,7 @@ def importTrainData():
     for pattern in intent['patterns']:
       words = preprocessor.tokenize(pattern) # tokenize patterns
       allWords.extend(words) # add to all words
+      xy.append((words, tag)) # x = w (tokenized patterns) -> y = tag
 
   allWords = [preprocessor.stem(word) for word in allWords if word not in toIgnore]
   allWords = sorted(set(allWords)) # stemmed and sorted all words (removed duplicates)
