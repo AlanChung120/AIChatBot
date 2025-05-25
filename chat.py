@@ -41,7 +41,7 @@ if __name__ == '__main__':
   
     tokenizedSentence = preprocessor.tokenize(inputSentence)
     # turn into bag of words vector
-    X = preprocessor.bagOfWordsVector(inputSentence, allWords)
+    X = preprocessor.bagOfWordsVector(tokenizedSentence, allWords)
     # reshape it as expected from the model (1 data sample, bagOfWords/allWords vector size)
     X = X.reshape(1, X.shape[0])
 

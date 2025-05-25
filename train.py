@@ -12,7 +12,7 @@ if __name__ == '__main__':
   batchSize = 8 # batch size the trainLoader loads at a time (ex. 26 = 8 + 8 + 8 + 2)
   hiddenSize = 8
   learningRate = 0.001
-  epochs = 500
+  epochs = 1000
   inputSize = len(allWords) # size of allWords/bagOfWords vector (all patterns)
   outputSize = len(allTags) # size of tags (classify tags)
 
