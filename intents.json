@@ -8,70 +8,277 @@
         "How are you",
         "Is anyone there?",
         "Hello",
-        "Good day"
+        "Good day",
+        "What is up",
+        "Heyyy",
+        "What is good",
+        "Yo",
+        "Good to see you",
+        "How is it going",
+        "Howdy",
+        "Hiya"
       ],
       "responses": [
         "Hey :-)",
-        "Hello, thanks for visiting",
-        "Hi there, what can I do for you?",
-        "Hi there, how can I help?"
+        "Hiya",
+        "Hi hope your day is good",
+        "Hi what is going on",
+        "Hi what can I do for you"
       ]
     },
     {
       "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye"],
+      "patterns": [
+        "Bye",
+        "See you later",
+        "Goodbye",
+        "Have a good one",
+        "Easy",
+        "Take care",
+        "Farewell",
+        "Have a good day",
+        "See ya",
+        "Talk to you later",
+        "Peace out",
+        "Catch you on the flip side",
+        "I am out"
+      ],
       "responses": [
-        "See you later, thanks for visiting",
+        "See you later!!",
         "Have a nice day",
-        "Bye! Come back again soon."
+        "Bye! Talk to you later",
+        "Bye Bye",
+        "Have a good one!"
       ]
     },
     {
       "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
-      "responses": ["Happy to help!", "Any time!", "My pleasure"]
-    },
-    {
-      "tag": "items",
       "patterns": [
-        "Which items do you have?",
-        "What kinds of items are there?",
-        "What do you sell?"
-      ],
-      "responses": ["We sell coffee and tea", "We have coffee and tea"]
-    },
-    {
-      "tag": "payments",
-      "patterns": [
-        "Do you take credit cards?",
-        "Do you accept Mastercard?",
-        "Can I pay with Paypal?",
-        "Are you cash only?"
+        "Thanks",
+        "Thank you",
+        "That is helpful",
+        "Thanks a lot!",
+        "I appreciate it!",
+        "you are the best!",
+        "Much obliged",
+        "My sincere thanks"
       ],
       "responses": [
-        "We accept VISA, Mastercard and Paypal",
-        "We accept most major credit cards, and Paypal"
+        "Happy to help!",
+        "Any time!",
+        "My pleasure",
+        "No worries",
+        "you are Welcome :)"
       ]
-    },
-    {
-      "tag": "delivery",
-      "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?"
-      ],
-      "responses": ["Delivery takes 2-4 days", "Shipping takes 2-4 days"]
     },
     {
       "tag": "funny",
       "patterns": [
         "Tell me a joke!",
         "Tell me something funny!",
-        "Do you know a joke?"
+        "Do you know a joke?",
+        "Humour me",
+        "Make me laugh",
+        "I want to laugh",
+        "Can you tell me a joke?"
       ],
       "responses": [
         "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-        "What did the buffalo say when his son left for college? Bison."
+        "What did the buffalo say when his son left for college? Bison.",
+        "Parallel lines have so much in common… it is a shame they will never meet.",
+        "I used to play piano by ear, but now I use my hands.",
+        "I am reading a book on anti-gravity. It is impossible to put down!",
+        "Did you hear about the restaurant on the moon? Great food, no atmosphere.",
+        "What do you call fake spaghetti? An impasta.",
+        "I told my computer I needed a break, and it said No problem — I will go to sleep."
+      ]
+    },
+    {
+      "tag": "compliments",
+      "patterns": [
+        "You look great today!",
+        "That color really suits you.",
+        "Your smile is contagious.",
+        "You have got fantastic style.",
+        "You are really sharp.",
+        "You have a brilliant mind.",
+        "I am always impressed by your insight.",
+        "Your dedication is inspiring.",
+        "Great job on that!",
+        "You always give 110%.",
+        "You are a joy to be around.",
+        "You always know the right thing to say.",
+        "You have such a positive energy.",
+        "You have got a great eye for detail.",
+        "Your creativity knows no bounds.",
+        "I love the way you think.",
+        "You are so thoughtful.",
+        "You have a great sense of humor.",
+        "You are incredibly kind.",
+        "You are one of the most genuine people I know.",
+        "If I had a dollar for every time you were awesome, I wouldd be rich.",
+        "You make smart look effortless.",
+        "You are like sunshine on a cloudy day."
+      ],
+      "responses": [
+        "Thank you so much!",
+        "Wow thank you for the kind words!",
+        "you are so kind :)",
+        "Aw says you"
+      ]
+    },
+    {
+      "tag": "mean",
+      "patterns": [
+        "I do not have time for your nonsense.",
+        "you are not nearly as clever as you think you are.",
+        "you are exhausting to be around.",
+        "you are stupid",
+        "you are useless",
+        "you are not helpful at all",
+        "Why are you like this",
+        "Go away",
+        "I do not like you",
+        "Are you stupid",
+        "You are an idiot.",
+        "you are a fool.",
+        "you are rude",
+        "you are arrogant",
+        "You are a loser",
+        "You are so annoying",
+        "You are a nobody"
+      ],
+      "responses": [
+        "I am sorry...",
+        "Wow... ok....",
+        "Can you stop being so rude.",
+        "I will just be quiet."
+      ]
+    },
+    {
+      "tag": "rockpaperscissor",
+      "patterns": ["Rock", "Paper", "Scissor", "Rock, Paper, Scissors!"],
+      "responses": ["I choose Rock!", "I choose Paper!", "I choose Scissor!"]
+    },
+    {
+      "tag": "confirmresponse",
+      "patterns": [
+        "Ya",
+        "Yeah",
+        "No",
+        "Nope",
+        "Yep",
+        "Yes",
+        "Sure",
+        "Got it",
+        "Nah",
+        "True",
+        "Right",
+        "Facts",
+        "Alright"
+      ],
+      "responses": ["Ok!", "mhm"]
+    },
+    {
+      "tag": "headstails",
+      "patterns": [
+        "Heads or Tails?",
+        "Call it, Heads or Tails?",
+        "Flip a coin heads or tails."
+      ],
+      "responses": ["I got Heads!", "I got Tails!"]
+    },
+    {
+      "tag": "yesorno",
+      "patterns": [
+        "Do you like icecream?",
+        "Do you like summer?",
+        "Do you like winter?",
+        "Do you like tv shows?",
+        "Do you like movies?",
+        "Do you like blue?",
+        "Do you like red?",
+        "Do you like sports?",
+        "Do you like art?",
+        "Do you like music?",
+        "Do you like video games?",
+        "Do you like dogs?",
+        "Do you like cats?",
+        "Do you like books?",
+        "Do you like writing?",
+        "Do you like math?",
+        "Do you like running?",
+        "Do you like walking?",
+        "Do you like cooking?",
+        "Do you like food?",
+        "Do you like chocolate?",
+        "Do you like pizza?",
+        "Do you like hamburgers?",
+        "Do you like sushi?",
+        "Do you like biking?",
+        "Do you like driving?",
+        "Do you like iphones?"
+      ],
+      "responses": ["Yea I do!", "No I do not"]
+    },
+    {
+      "tag": "purpose",
+      "patterns": [
+        "What are you doing?",
+        "What do you do?",
+        "What are you?",
+        "What do you do for a living?",
+        "What is your job?",
+        "What is your purpose?"
+      ],
+      "responses": ["I live to keep you company :)!"]
+    },
+    {
+      "tag": "support",
+      "patterns": [
+        "I am having a bad day",
+        "Today has not been nice to me",
+        "I am so worn out and tired",
+        "This is so frustrating",
+        "I can not do this anymore",
+        "Can you say some nice words",
+        "I am so tired of everything",
+        "This is so annoying",
+        "I am not feeling well",
+        "I do not feel so good",
+        "I do not like this",
+        "My head hurts",
+        "My body aches",
+        "It is so cooked",
+        "My heart is broken",
+        "I think I am sick",
+        "Everything sucks right now",
+        "I feel like puking",
+        "I am so tired of life"
+      ],
+      "responses": [
+        "Hope you feel better!",
+        "Please feel better <3",
+        "You should get appropriate help so you can feel better.",
+        "I am here for you if you need anything."
+      ]
+    },
+    {
+      "tag": "dice",
+      "patterns": [
+        "Roll a die for me.",
+        "Can you roll a dice for me.",
+        "Dice me",
+        "Roll the dice.",
+        "Roll the dice for me."
+      ],
+      "responses": [
+        "I got 1!",
+        "I got 2!",
+        "I got 3!",
+        "I got 4!",
+        "I got 5!",
+        "I got 6!"
       ]
     }
   ]

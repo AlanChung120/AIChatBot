@@ -10,9 +10,10 @@ if __name__ == '__main__':
 
   # Hyperparameters (can change)
   batchSize = 8 # batch size the trainLoader loads at a time (ex. 26 = 8 + 8 + 8 + 2)
-  hiddenSize = 8
+  hiddenSize = 32
+  hiddenSize2 = 16
   learningRate = 0.001
-  epochs = 1000
+  epochs = 100
   inputSize = len(allWords) # size of allWords/bagOfWords vector (all patterns)
   outputSize = len(allTags) # size of tags (classify tags)
 
@@ -24,7 +25,7 @@ if __name__ == '__main__':
 
   # device to train on
   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-  model = NeuralNet(inputSize, hiddenSize, outputSize).to(device)
+  model = NeuralNet(inputSize, hiddenSize, hiddenSize2, outputSize).to(device)
   # set the model to train mode
   model.train()
 
@@ -70,7 +71,8 @@ if __name__ == '__main__':
     "model_state": model.state_dict(),
     "input_size": inputSize,
     "output_size": outputSize,
-    "hidden_size": hiddenSize,
+    "hidden_size_1": hiddenSize,
+    "hidden_size_2": hiddenSize2,
     "all_words": allWords,
     "tags": allTags
   }

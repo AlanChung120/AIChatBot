@@ -15,7 +15,8 @@ if __name__ == '__main__':
   trainingData = torch.load(FILE)
 
   inputSize = trainingData["input_size"]
-  hiddenSize = trainingData["hidden_size"]
+  hiddenSize = trainingData["hidden_size_1"]
+  hiddenSize2 = trainingData["hidden_size_2"]
   outputSize = trainingData["output_size"]
   allWords = trainingData["all_words"]
   tags = trainingData["tags"]
@@ -23,7 +24,7 @@ if __name__ == '__main__':
 
   # set device and model
   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-  model = NeuralNet(inputSize, hiddenSize, outputSize).to(device)
+  model = NeuralNet(inputSize, hiddenSize, hiddenSize2, outputSize).to(device)
 
   # load the learned parameters from the file
   model.load_state_dict(modelState)
@@ -32,7 +33,7 @@ if __name__ == '__main__':
   model.eval()
 
   # chat loop
-  botName = "Sam"
+  botName = "ChatBot"
   print("Let's chat! type 'quit' to exit")
   while True:
     inputSentence = input("You: ")

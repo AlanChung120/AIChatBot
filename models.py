@@ -5,7 +5,7 @@ class NeuralNet(nn.Module):
   A class representing the neural network used for classification
   """
 
-  def __init__(self, inputSize, hiddenSize, classes):
+  def __init__(self, inputSize, hiddenSize, hiddenSize2,  classes):
     super(NeuralNet, self).__init__()
 
     # feed forward neural network with two layers
@@ -14,7 +14,11 @@ class NeuralNet(nn.Module):
       nn.ReLU(),
       nn.Linear(hiddenSize, hiddenSize),
       nn.ReLU(),
-      nn.Linear(hiddenSize, classes)
+      nn.Linear(hiddenSize, hiddenSize2),
+      nn.ReLU(),
+      nn.Linear(hiddenSize2, hiddenSize2),
+      nn.ReLU(),
+      nn.Linear(hiddenSize2, classes)
     )
   
   # forward pass of the neural network 
