@@ -42,7 +42,7 @@ if __name__ == '__main__':
       # push to device
       wordsBagVector = wordsBagVector.to(device) # batch of words (X_train)
       tags = tags.to(device) # batch of labels/tag index (y_train)
-      # zero out gradients
+      # zero out gradients from previous epoch
       optimizer.zero_grad()
 
       # forward pass----------------------------------------------
@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
       # backward step------------------------------------------------
       loss.backward() # calculate back propagation (gradients from all the parameters)
-      optimizer.step() # single optimization step using the gradients from previous step
+      optimizer.step() # optimization step: update parameters using the gradients from previous step
       # get predicted tag from outputs (get index of highest element in each row (for each training sample in batch))
       _, predicted = outputs.max(1)
       # count number of correct prediction (check equality, turn boolean -> double (1.0, 0.0), add the elements of the numpy array, get that sum)
