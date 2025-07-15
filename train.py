@@ -52,8 +52,8 @@ if __name__ == '__main__':
       loss = lossFunction(outputs, tags)
 
       # backward step------------------------------------------------
-      loss.backward() # calculate back propagation
-      optimizer.step() # single optimization step
+      loss.backward() # calculate back propagation (gradients from all the parameters)
+      optimizer.step() # single optimization step using the gradients from previous step
       # get predicted tag from outputs (get index of highest element in each row (for each training sample in batch))
       _, predicted = outputs.max(1)
       # count number of correct prediction (check equality, turn boolean -> double (1.0, 0.0), add the elements of the numpy array, get that sum)
