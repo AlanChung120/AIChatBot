@@ -48,7 +48,7 @@ if __name__ == '__main__':
       # forward pass----------------------------------------------
       # outputs: len(allTags) (column) X batch_size (row) (higher the number the more liekly it is that tag)
       # len(allTags) = number of output features/classifications
-      outputs = model(wordsBagVector)
+      outputs = model(wordsBagVector) # forward function is implicitly called when instance (object) is called directly
       loss = lossFunction(outputs, tags)
 
       # backward step------------------------------------------------
