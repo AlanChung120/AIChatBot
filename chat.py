@@ -50,7 +50,7 @@ if __name__ == '__main__':
     X = torch.from_numpy(X)
 
     # get the tag using the model from input X
-    output = model(X)
+    output = model(X) # forward function is implicitly called when instance (object) is called directly
     _, predicted = output.max(1)
     tag = tags[predicted.item()]
     
