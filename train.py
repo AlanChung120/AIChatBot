@@ -29,7 +29,7 @@ if __name__ == '__main__':
   # set the model to train mode
   model.train()
 
-  # loss and optimizer
+  # loss and optimizer: method of updating the parameters using the gradients
   lossFunction = nn.CrossEntropyLoss()
   optimizer = torch.optim.Adam(model.parameters(), lr=learningRate)
 
