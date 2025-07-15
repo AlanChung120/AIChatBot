@@ -49,11 +49,11 @@ if __name__ == '__main__':
       # outputs: len(allTags) (column) X batch_size (row) (higher the number the more liekly it is that tag)
       # len(allTags) = number of output features/classifications
       outputs = model(wordsBagVector) # forward function is implicitly called when instance (object) is called directly
-      loss = lossFunction(outputs, tags)
+      loss = lossFunction(outputs, tags) # get loss (want to minimize this)
 
       # backward step------------------------------------------------
-      loss.backward() # calculate back propagation (gradients from all the parameters)
-      optimizer.step() # optimization step: update parameters using the gradients from previous step
+      loss.backward() # calculate back propagation (gradients (derivative of loss function wrt parameter) for all the parameters)
+      optimizer.step() # step (optimize parameters) towards negative of gradient (calculated in the previous step) scaled with learning rate
       # get predicted tag from outputs (get index of highest element in each row (for each training sample in batch))
       _, predicted = outputs.max(1)
       # count number of correct prediction (check equality, turn boolean -> double (1.0, 0.0), add the elements of the numpy array, get that sum)
