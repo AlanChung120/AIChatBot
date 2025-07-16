@@ -29,7 +29,7 @@ if __name__ == '__main__':
   # load the learned parameters from the file
   model.load_state_dict(modelState)
 
-  # set the model to evaluation mode
+  # set the model to evaluation mode (bc some layers wil behave differently ex. dropout batchnorm layers)
   model.eval()
 
   # chat loop

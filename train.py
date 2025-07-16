@@ -26,7 +26,7 @@ if __name__ == '__main__':
   # device to train on
   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
   model = NeuralNet(inputSize, hiddenSize, hiddenSize2, outputSize).to(device)
-  # set the model to train mode
+  # set the model to train mode (bc some layers wil behave differently ex. dropout, batchnorm layers)
   model.train()
 
   # loss and optimizer: method of updating the parameters using the gradients
