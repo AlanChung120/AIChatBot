@@ -42,8 +42,6 @@ if __name__ == '__main__':
       # push to device
       wordsBagVector = wordsBagVector.to(device) # batch of words (X_train)
       tags = tags.to(device) # batch of labels/tag index (y_train)
-      # zero out gradients from previous epoch
-      optimizer.zero_grad()
 
       # forward pass----------------------------------------------
       # outputs: len(allTags) (column) X batch_size (row) (higher the number the more liekly it is that tag)
@@ -52,6 +50,7 @@ if __name__ == '__main__':
       loss = lossFunction(outputs, tags) # get loss (want to minimize this)
 
       # backward step------------------------------------------------
+      optimizer.zero_grad() # zero out gradients from previous epoch
       loss.backward() # calculate back propagation (gradients (derivative of loss function wrt parameter) for all the parameters)
       optimizer.step() # step (optimize parameters) towards negative of gradient (calculated in the previous step) scaled with learning rate
       # get predicted tag from outputs (get index of highest element in each row (for each training sample in batch))
