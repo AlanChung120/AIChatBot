@@ -48,6 +48,7 @@ if __name__ == '__main__':
 
     # convert numpy X into torch tensor data type
     X = torch.from_numpy(X)
+    X = X.to(device)
 
     # get the tag using the model from input X
     output = model(X) # forward function is implicitly called when instance (object) is called directly
